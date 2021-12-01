@@ -7,12 +7,12 @@ namespace Babelfish_Demo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Getting Connection ...");
+            Console.WriteLine("Getting SQL Server Connection ...");
 
-            var datasource = @"babelfish-db.cluster-xyz.us-east-1-beta.rds.amazonaws.com";
-            var database = "demo";
-            var username = "posgres";
-            var password = "<type your DB password here>";
+            var datasource = @".\DEMO";
+            var database = "BabelfishDemoDB";
+            var username = "DemoLogin";
+            var password = "DemoLogin";
 
             //your connection string
             string connString = @"Data Source=" + datasource + ";Initial Catalog="
@@ -29,12 +29,12 @@ namespace Babelfish_Demo
                 //open connection
                 conn.Open();
 
-                Console.WriteLine("Connection successful!");
+                Console.WriteLine("Connection successful to Sql Server!, Press enter key to work with data....");
                 Console.ReadLine();
-                Console.WriteLine("Let's read some data ORDER BY first_name");
-                Console.ReadLine();
+                Console.WriteLine("Reading TOP 5 Customers data ORDER BY first_name \n");
+                //Console.ReadLine();
 
-                string querystring = @"SELECT  * FROM
+                string querystring = @"SELECT TOP 5 * FROM
                    sales.customers
                     WHERE
                     state = 'CA'
@@ -49,7 +49,7 @@ namespace Babelfish_Demo
                         reader[0], reader[1], reader[2]));
                 }
 
-                Console.WriteLine("Data displayed! Now press enter to move to the next section!");
+                Console.WriteLine("\n Select Query Success & Data displayed! Now press enter to Insert some data");
                 Console.ReadLine();
                 Console.Clear();
                 reader.Close();
@@ -59,7 +59,7 @@ namespace Babelfish_Demo
                  * to add the data to the table. This is an example of another
                  * SQL Command (INSERT INTO), this will teach the usage of parameters and connection.*/
 
-                Console.WriteLine("INSERT command where order_id=1615 and item_id=6");
+                Console.WriteLine("Inserting 1 row where order_id=1615 and item_id=6 \n");
 
                 // Create the command, to insert the data into the Table!
                 // this is a simple INSERT INTO command!
@@ -73,7 +73,7 @@ namespace Babelfish_Demo
                 insertCommand.Parameters.Add(new SqlParameter("5", 0.05));
 
                 Console.WriteLine("Commands executed! Total rows affected are " + insertCommand.ExecuteNonQuery());
-                Console.WriteLine("Done! Let's read this row where order_id=1615 and item_id=6");
+                Console.WriteLine("\n Insert Done! Let's read this row where order_id=1615 and item_id=6 \n");
                 string Selectstring = @"SELECT  * FROM sales.order_items where order_id = @0 and item_id = @1";
                 SqlCommand Selectcmd = new SqlCommand(Selectstring, conn);
                 Selectcmd.Parameters.Add(new SqlParameter("0", 1615));
@@ -87,7 +87,7 @@ namespace Babelfish_Demo
                 }
 
                 Selectreader.Close();
-                Console.WriteLine("Update this row: set quantity=3 where order_id=1615 and item_id=6");
+                Console.WriteLine("\n Press Enter to Update this row: set quantity=3 where order_id=1615 and item_id=6");
                 Console.ReadLine();
 
                 SqlCommand UPDCommand = new SqlCommand("UPDATE sales.order_items SET quantity=@0 where order_id=@1 and item_id=@2", conn);
@@ -96,7 +96,7 @@ namespace Babelfish_Demo
                 UPDCommand.Parameters.Add(new SqlParameter("2", 6));
 
                 Console.WriteLine("Update executed! Total rows affected are " + UPDCommand.ExecuteNonQuery());
-                Console.WriteLine("Let's read this row again; order_id=1615 and item_id=6");
+                Console.WriteLine("\n Let's read this row again; order_id=1615 and item_id=6");
                 string Select1string = @"SELECT  * FROM sales.order_items where order_id = @0 and item_id = @1";
                 SqlCommand Select1cmd = new SqlCommand(Select1string, conn);
                 Select1cmd.Parameters.Add(new SqlParameter("0", 1615));
@@ -111,16 +111,16 @@ namespace Babelfish_Demo
                 }
 
                 Select1reader.Close();
+                //Console.ReadLine();
+
+                Console.WriteLine("\n Press Enter to Delete row where order_id=1615 and item_id=6");
                 Console.ReadLine();
-
-                Console.WriteLine("Delete row where order_id=1615 and item_id=6");
-
                 SqlCommand DELCommand = new SqlCommand("DELETE FROM sales.order_items where order_id=@0 and item_id=@1", conn);
                 DELCommand.Parameters.Add(new SqlParameter("0", 1615));
                 DELCommand.Parameters.Add(new SqlParameter("1", 6));
 
                 Console.WriteLine("Delete executed! Total rows affected are " + DELCommand.ExecuteNonQuery());
-                Console.WriteLine("Let's read this row again where order_id=1615 and item_id=6");
+                Console.WriteLine("\n Let's read this row again where order_id=1615 and item_id=6");
                 string Select2string = @"SELECT  * FROM sales.order_items where order_id = @0 and item_id = @1";
                 SqlCommand Select2cmd = new SqlCommand(Select2string, conn);
                 Select2cmd.Parameters.Add(new SqlParameter("0", 1615));
@@ -136,12 +136,13 @@ namespace Babelfish_Demo
 
                 Console.WriteLine("0 row(s) returned");
                 Select2reader.Close();
+                Console.WriteLine("\n Deleted row successfully ,Press Enter to test --Execute a nested Select with GROUP BY query");
                 Console.ReadLine();
 
                 Console.Clear();
 
-                Console.WriteLine("Execute a nested Select with GROUP BY query");
-                Console.ReadLine();
+                Console.WriteLine("Executing a nested Select with GROUP BY query....");
+                //Console.ReadLine();
 
                 string ctestring = @"WITH cte_sales_amounts(staff, sales, year) AS(
                 SELECT
@@ -170,7 +171,7 @@ namespace Babelfish_Demo
                     Console.WriteLine(ctereader[0].ToString() + " " + ctereader[1].ToString());
                 }
 
-                Console.WriteLine("Done! Press enter to exit application");
+                Console.WriteLine("\n \n All DML Testing Done! Press enter to exit application");
                 Console.ReadLine();
                 Console.Clear();
                 ctereader.Close();
@@ -182,7 +183,7 @@ namespace Babelfish_Demo
                 Console.WriteLine("Error: " + e.Message);
             }
 
-            Console.Read();
+            //Console.Read();
         }
     }
 }
