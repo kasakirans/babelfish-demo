@@ -1,0 +1,6 @@
+D:\BablefishDemo\babelfish-demo\src\App-BabelfishCode\bin\Debug\DBClient_Babelfish.exe
+D:\BablefishDemo\babelfish-demo\src\App-BabelfishCode\bin\Debug\DBClient_Babelfish.pdb
+D:\BablefishDemo\babelfish-demo\src\App-BabelfishCode\obj\x86\Debug\DBClient-Babelfish.csproj.AssemblyReference.cache
+D:\BablefishDemo\babelfish-demo\src\App-BabelfishCode\obj\x86\Debug\DBClient-Babelfish.csproj.CoreCompileInputs.cache
+D:\BablefishDemo\babelfish-demo\src\App-BabelfishCode\obj\x86\Debug\DBClient_Babelfish.exe
+D:\BablefishDemo\babelfish-demo\src\App-BabelfishCode\obj\x86\Debug\DBClient_Babelfish.pdb

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBClient-SS", "DBClient-SS.csproj", "{CEA41596-46FA-4C13-8793-E2BA2D66A01E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEA41596-46FA-4C13-8793-E2BA2D66A01E}.Debug|x86.ActiveCfg = Debug|x86
+		{CEA41596-46FA-4C13-8793-E2BA2D66A01E}.Debug|x86.Build.0 = Debug|x86
+		{CEA41596-46FA-4C13-8793-E2BA2D66A01E}.Release|x86.ActiveCfg = Release|x86
+		{CEA41596-46FA-4C13-8793-E2BA2D66A01E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A33243F-53F9-48A2-8F6A-3410BBA3A583}
+	EndGlobalSection
+EndGlobal

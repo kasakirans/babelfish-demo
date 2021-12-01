@@ -1,0 +1,6 @@
+D:\BablefishDemo\babelfish-demo\src\obj\x86\Debug\DBClient-SS.csproj.AssemblyReference.cache
+D:\BablefishDemo\babelfish-demo\src\obj\x86\Debug\DBClient-SS.csproj.CoreCompileInputs.cache
+D:\BablefishDemo\babelfish-demo\src\bin\Debug\DBClient_SS.exe
+D:\BablefishDemo\babelfish-demo\src\bin\Debug\DBClient_SS.pdb
+D:\BablefishDemo\babelfish-demo\src\obj\x86\Debug\DBClient_SS.exe
+D:\BablefishDemo\babelfish-demo\src\obj\x86\Debug\DBClient_SS.pdb
